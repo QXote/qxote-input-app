@@ -3,8 +3,10 @@ import MultiStepForm from "./components/features/MultiStepForm/MultiStepForm.tsx
 
 function App() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen space-y-6">
-            <MultiStepForm></MultiStepForm>
+        <div className="antialiased  h-screen scroll-smooth">
+            <div className="flex py-5 h-full flex-col container m-auto text-center">
+                <MultiStepForm></MultiStepForm>
+            </div>
         </div>
     );
 }
