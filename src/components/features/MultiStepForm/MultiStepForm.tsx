@@ -1,12 +1,11 @@
 import {useState} from 'react';
-import { Button } from "@/components/ui/button"
+import {Button} from "@/components/ui/button"
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import StepFour from './StepFour';
 import StepFive from './StepFour';
 import StepIndicator from "@/components/widgets/stepIndicator.tsx";
-
 
 function MultiStepForm() {
     const [currentStep, setStep] = useState(0);
@@ -27,16 +26,17 @@ function MultiStepForm() {
 
     return (
         <>
-            <div className="p-4">
-                <StepIndicator
-                    steps={["Select Plot", "Take Photo", "flora, klasse & dekking", "zone, microklimaat, temp & luchtvochtigheid", "Confirm"]}
-                    currentStep={currentStep}
-                />
+            <StepIndicator
+                steps={["Select Plot", "Take Photo", "flora, klasse & dekking", "zone, microklimaat, temp & luchtvochtigheid", "Confirm"]}
+                currentStep={currentStep}
+            />
+            <div className="h-full">
                 {steps[currentStep]}
-                <div>
-                    {currentStep > 0 && <Button onClick={() => setStep(s => s - 1)}>Back</Button>}
-                    {currentStep < steps.length - 1 ? (<Button onClick={() => setStep(s => s + 1)}>Next</Button>) : (<Button onClick={() => console.log('Submit', formData)}>Submit</Button>)}
-                </div>
+            </div>
+            <div className="flex justify-center space-x-5">
+                {currentStep > 0 && <Button onClick={() => setStep(s => s - 1)}>Back</Button>}
+                {currentStep < steps.length - 1 ? (<Button onClick={() => setStep(s => s + 1)}>Next</Button>) : (
+                    <Button variant={"secondary"} onClick={() => console.log('Submit', formData)}>Submit</Button>)}
             </div>
         </>
     );
