@@ -117,4 +117,28 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  h1 {
+    @apply text-5xl md:text-4xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-4xl md:text-3xl font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-3xl md:text-2xl font-bold leading-tight;
+  }
+
+  h4 {
+    @apply text-2xl md:text-xl font-bold leading-tight;
+  }
+
+  h5 {
+    @apply text-xl md:text-lg font-bold leading-tight;
+  }
+
+  h6 {
+    @apply text-lg md:text-base font-bold leading-tight;
+  }
 }
