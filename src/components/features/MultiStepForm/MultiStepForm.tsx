@@ -32,11 +32,11 @@ function MultiStepForm() {
                     steps={["Select Plot", "Take Photo", "flora, klasse & dekking", "zone, microklimaat, temp & luchtvochtigheid", "Confirm"]}
                     currentStep={currentStep}
                 />
+                {steps[currentStep]}
                 <div>
                     {currentStep > 0 && <Button onClick={() => setStep(s => s - 1)}>Back</Button>}
                     {currentStep < steps.length - 1 ? (<Button onClick={() => setStep(s => s + 1)}>Next</Button>) : (<Button onClick={() => console.log('Submit', formData)}>Submit</Button>)}
                 </div>
-                {steps[currentStep]}
             </div>
         </>
     );
