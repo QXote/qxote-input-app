@@ -4,6 +4,7 @@ import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
 import StepFour from './StepFour';
+import StepFive from './StepFour';
 import StepIndicator from "@/components/widgets/stepIndicator.tsx";
 
 
@@ -15,7 +16,8 @@ function MultiStepForm() {
         <StepOne data={formData} onChange={handleChange}/>,
         <StepTwo data={formData} onChange={handleChange}/>,
         <StepThree data={formData} onChange={handleChange}/>,
-        <StepFour data={formData} onChange={handleChange}/>
+        <StepFour data={formData} onChange={handleChange}/>,
+        <StepFive data={formData} onChange={handleChange}/>
     ];
 
     function handleChange(e: any) {
@@ -27,7 +29,7 @@ function MultiStepForm() {
         <>
             <div className="p-4">
                 <StepIndicator
-                    steps={["Select Plot", "Take Photo", "Fill Info", "Confirm"]}
+                    steps={["Select Plot", "Take Photo", "flora, klasse & dekking", "zone, microklimaat, temp & luchtvochtigheid", "Confirm"]}
                     currentStep={currentStep}
                 />
                 <div>
