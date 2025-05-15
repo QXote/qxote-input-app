@@ -32,9 +32,9 @@ function MultiStepForm() {
                 {steps[currentStep]}
             </div>
             <div className="flex justify-center space-x-5">
-                {currentStep > 0 && <Button onClick={() => setStep(s => s - 1)}>Back</Button>}
-                {currentStep < steps.length - 1 ? (<Button onClick={() => setStep(s => s + 1)}>Next</Button>) : (
-                    <Button variant={"secondary"} onClick={() => console.log('Submit', formData)}>Submit</Button>)}
+                {currentStep > 0 && <Button size={"lg"} onClick={() => setStep(s => s - 1)}>Back</Button>}
+                {currentStep < steps.length - 1 ? (<Button size={"lg"} onClick={() => setStep(s => s + 1)}>Next</Button>) : (
+                    <Button variant={"secondary"} size={"lg"} onClick={() => console.log('Submit', formData)}>Submit</Button>)}
             </div>
         </>
     );
