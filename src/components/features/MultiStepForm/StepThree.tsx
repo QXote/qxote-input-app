@@ -66,6 +66,7 @@ export default function StepThree() {
             placeholder="..."
             className="pr-10"
             value={temperature ?? ""}
+            onChange={(e) => setTemperature(Number(e.target.value))}
           />
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
             °C
@@ -77,10 +78,11 @@ export default function StepThree() {
         <div className="relative">
           <Input
             id="humidity"
-            type="string"
+            type="number"
             placeholder="..."
             className="pr-10"
             value={humidity ?? ""}
+            onChange={(e) => setHumidity(Number(e.target.value))}
           />
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
             %
