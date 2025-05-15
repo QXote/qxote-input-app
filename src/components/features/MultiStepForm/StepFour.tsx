@@ -8,5 +8,4 @@ export default function StepFour() {
         <h1 className="text-2xl font-bold">Summary</h1>
         <SummaryDataTable/>
     </div>
-  );
 }
