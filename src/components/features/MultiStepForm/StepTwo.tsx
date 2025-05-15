@@ -40,14 +40,13 @@ export default function StepTwo({ data, onChange }: StepTwoProps) {
   }
 
   return (
-    <div className="font-sans mx-auto gap-2 flex flex-col p-1">
-      <h2 className="text-xl font-bold">Flora Registration</h2>
-
+    <div className="font-sans mx-auto gap-2 flex flex-col pb-5">
+      <h1 className="text-xl font-bold">Flora</h1>
       <label className="mb-2">
         Add by typing, or, search & select flora from dropdown.
       </label>
 
-      <div className="flex flex-col items-center gap-3 mb-3 w-full">
+      <div className="flex flex-col items-center gap-3 w-full">
         <Input
           type="text"
           value={searchTerm}
