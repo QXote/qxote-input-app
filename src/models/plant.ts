@@ -1,4 +1,4 @@
-// From gbif_Api
+// From Flora_Api
 export interface Plant {
   key: number;
   scientificName: string;

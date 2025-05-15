@@ -19,61 +19,67 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover.tsx";
 import type { Plot } from "@/models/plot.ts";
+import type { PlantDTO } from "@/models/plantDTO.ts";
 
-const plots: Plot[] = [
-  {
-    id: "next.js",
-    name: "Next.js",
-  },
-];
+interface PlotDropdownProps {
+  data: PlantDTO;
+  plots: Plot[];
+  onChange: (e: { target: { name: string; value: any } }) => void;
+}
 
-export function Plot_dropdown() {
+export function Plot_dropdown({ data, plots, onChange }: PlotDropdownProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState<string>(data.plotNr ?? "");
+
+  React.useEffect(() => {
+    if (data.plotNr !== value) {
+      setValue(data.plotNr ?? "");
+    }
+  }, [data.plotNr]);
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-[200px] justify-between"
-        >
-          {value
-            ? plots.find((plot) => plot.name === value)?.name
-            : "Select framework..."}
-          <ChevronsUpDown className="opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command>
-          <CommandInput placeholder="Select framework..." />
-          <CommandList>
-            <CommandEmpty>No framework found.</CommandEmpty>
-            <CommandGroup>
-              {plots.map((plot) => (
-                <CommandItem
-                  key={plot.name}
-                  value={plot.name}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    setOpen(false);
-                  }}
-                >
-                  {plot.name}
-                  <Check
-                    className={cn(
-                      "ml-auto",
-                      value === plot.name ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              className="w-[200px] justify-between"
+          >
+            {value ? plots.find((plot) => plot.name === value)?.name : "Select plot..."}
+            <ChevronsUpDown className="opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-[200px] p-0">
+          <Command>
+            <CommandInput placeholder="Search plot..." />
+            <CommandList>
+              <CommandEmpty>No plot found.</CommandEmpty>
+              <CommandGroup>
+                {plots.map((plot) => (
+                    <CommandItem
+                        key={plot.name}
+                        value={plot.name}
+                        onSelect={(currentValue) => {
+                          const selected = plots.find((p) => p.name === currentValue);
+                          if (selected) {
+                            onChange({ target: { name: "plotNr", value: selected.name } });
+                            onChange({ target: { name: "coordinate", value: selected.coordinate } });
+                            setValue(currentValue);
+                            setOpen(false);
+                          }
+                        }}
+                    >
+                      {plot.name}
+                      <Check
+                          className={cn("ml-auto", value === plot.name ? "opacity-100" : "opacity-0")}
+                      />
+                    </CommandItem>
+                ))}
+              </CommandGroup>
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
   );
 }

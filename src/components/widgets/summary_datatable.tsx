@@ -1,8 +1,8 @@
-import type { plantDTO } from "@/models/plantDTO.ts";
+import type { PlantDTO } from "@/models/plantDTO.ts";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-const defaultPlant: plantDTO = {
-  plantNr: "P042",
+const defaultPlant: PlantDTO = {
+  plotNr: "P042",
   coordinate: "51.9244, 4.4777",
   species: "Lavendel",
   cover: "75%",
@@ -13,7 +13,7 @@ const defaultPlant: plantDTO = {
 };
 
 interface SummaryDataTableProps {
-  plant?: plantDTO; // plant is optioneel
+  plant?: PlantDTO;
 }
 
 export function SummaryDataTable({
@@ -23,8 +23,8 @@ export function SummaryDataTable({
     <Table>
       <TableBody>
         <TableRow>
-          <TableCell className="font-medium">PlantNr</TableCell>
-          <TableCell>{plant.plantNr}</TableCell>
+          <TableCell className="font-medium">PlotNr</TableCell>
+          <TableCell>{plant.plotNr}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Coordinate</TableCell>
@@ -33,6 +33,10 @@ export function SummaryDataTable({
         <TableRow>
           <TableCell className="font-medium">Species</TableCell>
           <TableCell>{plant.species}</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell className="font-medium">Zone</TableCell>
+          <TableCell>{plant.zone}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Cover</TableCell>
@@ -49,10 +53,6 @@ export function SummaryDataTable({
         <TableRow>
           <TableCell className="font-medium">Date</TableCell>
           <TableCell>{plant.date}</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell className="font-medium">Zone</TableCell>
-          <TableCell>{plant.zone}</TableCell>
         </TableRow>
       </TableBody>
     </Table>
