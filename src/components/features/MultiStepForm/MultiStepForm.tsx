@@ -10,17 +10,17 @@ function MultiStepForm() {
   const [currentStep, setStep] = useState(0);
   const [formData, setFormData] = useState({});
 
-    const steps = [
-        <StepOne data={formData} onChange={handleChange} />,
-        <StepTwo data={formData} onChange={handleChange} />,
-        <StepThree data={formData} onChange={handleChange} />,
-        <StepFour data={formData} />,
-    ];
+  const steps = [
+    <StepOne data={formData} onChange={handleChange} />,
+    <StepTwo data={formData} onChange={handleChange} />,
+    <StepThree data={formData} onChange={handleChange} />,
+    <StepFour data={formData} />,
+  ];
 
-    function handleChange(e: any) {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    }
+  function handleChange(e: any) {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  }
 
   return (
     <>
@@ -34,7 +34,7 @@ function MultiStepForm() {
         currentStep={currentStep}
       />
       <div className="h-full">{steps[currentStep]}</div>
-      <div className="flex justify-center space-x-5">
+      <div className="flex justify-center gap-5">
         {currentStep > 0 && (
           <Button onClick={() => setStep((s) => s - 1)}>Back</Button>
         )}
