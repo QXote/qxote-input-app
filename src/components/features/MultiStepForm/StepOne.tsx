@@ -47,9 +47,9 @@ export default function StepOne({data, onChange}: StepOneProps) {
 
 
     return (
-        <div className="flex flex-col items-center justify-center space-y-2">
-            <img src="/app_logo.png" className="h-20" alt="app logo"/>
-            <h1>Plot kiezen</h1>
+        <div className="flex flex-col items-center justify-center gap-2 pb-5">
+            <h1 className="text-xl font-bold">Plot</h1>
+            <label className="mb-2">Create a Plot</label>
             <Combobox
                 items={plots.map((p) => ({
                     value: p.id,

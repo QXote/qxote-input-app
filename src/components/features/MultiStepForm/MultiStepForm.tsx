@@ -36,9 +36,9 @@ function MultiStepForm() {
     }
 
     const steps = [
-        <StepOne data={formData} onChange={handleChange}/>,
-        <StepTwo data={formData} onChange={handleChange}/>,
-        <StepThree data={formData} onChange={handleChange}/>,
+        <StepOne data={formData} onChange={handleChange as any} />,
+        <StepTwo data={formData} onChange={handleChange as any} />,
+        <StepThree data={formData} onChange={handleChange as any} />,
         <StepFour data={formData}/>,
     ];
 
