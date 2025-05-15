@@ -27,7 +27,7 @@ const plots: Plot[] = [
     },
 ]
 
-export function Combobox() {
+export function Plot_dropdown() {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
 

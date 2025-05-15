@@ -3,7 +3,7 @@ interface StepIndicatorProps {
     currentStep: number;
 }
 
-export default function StepIndicator({steps, currentStep}: StepIndicatorProps) {
+export default function Step_indicator({steps, currentStep}: StepIndicatorProps) {
     return (
         <div className="flex justify-center items-center space-x-4">
             {steps.map((_step, index) => {
