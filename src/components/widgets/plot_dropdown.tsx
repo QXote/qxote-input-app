@@ -29,13 +29,13 @@ interface PlotDropdownProps {
 
 export function Plot_dropdown({ data, plots, onChange }: PlotDropdownProps) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState<string>(data.plantNr ?? "");
+  const [value, setValue] = React.useState<string>(data.plotNr ?? "");
 
   React.useEffect(() => {
-    if (data.plantNr !== value) {
-      setValue(data.plantNr ?? "");
+    if (data.plotNr !== value) {
+      setValue(data.plotNr ?? "");
     }
-  }, [data.plantNr]);
+  }, [data.plotNr]);
 
   return (
       <Popover open={open} onOpenChange={setOpen}>
@@ -63,7 +63,7 @@ export function Plot_dropdown({ data, plots, onChange }: PlotDropdownProps) {
                         onSelect={(currentValue) => {
                           const selected = plots.find((p) => p.name === currentValue);
                           if (selected) {
-                            onChange({ target: { name: "plantNr", value: selected.name } });
+                            onChange({ target: { name: "plotNr", value: selected.name } });
                             onChange({ target: { name: "coordinate", value: selected.coordinate } });
                             setValue(currentValue);
                             setOpen(false);

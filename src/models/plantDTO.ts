@@ -1,5 +1,5 @@
 export interface PlantDTO {
-  plantNr: string;
+  plotNr: string;
   coordinate: string;
   species: string;
   cover: string;
