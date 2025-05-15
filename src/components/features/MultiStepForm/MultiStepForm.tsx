@@ -52,15 +52,18 @@ function MultiStepForm() {
 
     return (
         <>
-            <Step_indicator
-                steps={[
-                    "Select Plot",
-                    "flora, klasse & dekking",
-                    "zone, microklimaat, temp & luchtvochtigheid",
-                    "Confirm",
-                ]}
-                currentStep={currentStep}
-            />
+            <div className="flex flex-col items-center gap-2 pb-2">
+                <Step_indicator
+                    steps={[
+                        "Select Plot",
+                        "flora, klasse & dekking",
+                        "zone, microklimaat, temp & luchtvochtigheid",
+                        "Confirm",
+                    ]}
+                    currentStep={currentStep}
+                />
+                <img src="/app_logo.png" className="h-auto w-24" alt="app logo" />
+            </div>
             <div className="h-full">{steps[currentStep]}</div>
             <div className="flex justify-center space-x-5">
                 {currentStep > 0 && (
