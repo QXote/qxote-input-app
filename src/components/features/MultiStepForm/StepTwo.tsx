@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { searchPlants, getPlantDetails } from "@/api/gbif_api";
+import { searchPlants, getPlantDetails } from "@/api/flora_api.ts";
 import type { Plant } from "@/models/plant.ts";
 import type { PlantDTO } from "@/models/plantDTO.ts";
 import { Input } from "@/components/ui/input";
