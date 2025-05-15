@@ -65,7 +65,6 @@ export default function StepThree() {
             type="number"
             placeholder="..."
             className="pr-10"
-            readOnly
             value={temperature ?? ""}
           />
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
@@ -81,7 +80,6 @@ export default function StepThree() {
             type="string"
             placeholder="..."
             className="pr-10"
-            readOnly
             value={humidity ?? ""}
           />
           <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
