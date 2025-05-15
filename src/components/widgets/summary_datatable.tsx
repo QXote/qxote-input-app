@@ -1,7 +1,7 @@
-import type { plantDTO } from "@/models/plantDTO.ts";
+import type { PlantDTO } from "@/models/plantDTO.ts";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-const defaultPlant: plantDTO = {
+const defaultPlant: PlantDTO = {
   plantNr: "P042",
   coordinate: "51.9244, 4.4777",
   species: "Lavendel",
@@ -13,7 +13,7 @@ const defaultPlant: plantDTO = {
 };
 
 interface SummaryDataTableProps {
-  plant?: plantDTO; // plant is optioneel
+  plant?: PlantDTO;
 }
 
 export function SummaryDataTable({

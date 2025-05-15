@@ -10,17 +10,17 @@ function MultiStepForm() {
   const [currentStep, setStep] = useState(0);
   const [formData, setFormData] = useState({});
 
-  const steps = [
-    <StepOne data={formData} onChange={handleChange} />,
-    <StepTwo data={formData} onChange={handleChange} />,
-    <StepThree data={formData} onChange={handleChange} />,
-    <StepFour data={formData} onChange={handleChange} />,
-  ];
+    const steps = [
+        <StepOne data={formData} onChange={handleChange} />,
+        <StepTwo data={formData} onChange={handleChange} />,
+        <StepThree data={formData} onChange={handleChange} />,
+        <StepFour data={formData} />,
+    ];
 
-  function handleChange(e: any) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  }
+    function handleChange(e: any) {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    }
 
   return (
     <>

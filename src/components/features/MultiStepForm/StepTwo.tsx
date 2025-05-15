@@ -89,7 +89,7 @@ export default function StepTwo() {
             >
               <div>
                 <strong>{item.scientificName}</strong>
-                {item.vernacularName && <span> ({item.vernacularName})</span>}
+                {item.canonicalName && <span> ({item.canonicalName})</span>}
               </div>
               {item.class && (
                 <div style={{ fontSize: "0.8rem", color: "#555" }}>
