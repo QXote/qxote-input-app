@@ -1,4 +1,4 @@
-import type { WeatherData } from "@/models/weather_data.ts";
+import type { WeatherData } from "@/models/weatherData.ts";
 
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 

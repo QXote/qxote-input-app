@@ -43,7 +43,7 @@ export default function StepThree({ data, onChange }: StepThreeProps) {
   return (
     <>
       <div className="flex flex-col gap-2">
-        <h1 className="text-xl font-bold">zone & microclimate</h1>
+        <h1 className="text-xl font-bold">Zone & Microclimate</h1>
         <label className="mb-2">Select both and the rest gets filled in</label>
       </div>
       <div className="flex flex-col gap-6 pb-5">
