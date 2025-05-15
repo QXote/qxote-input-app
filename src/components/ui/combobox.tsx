@@ -24,11 +24,12 @@ import { cn } from "@/lib/utils";
 export type ComboboxItem = {
   value: string;
   label: string;
+  [key: string]: any; // allows extra fields like coordinate
 };
 
 interface ComboboxProps {
   items: ComboboxItem[];
-  selectedValue: string | null;
+  selectedValue?: string | null | undefined;
   onValueChange: (value: string | null) => void;
   placeholder?: string;
   className?: string;
