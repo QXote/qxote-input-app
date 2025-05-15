@@ -1,4 +1,4 @@
-export interface plantDTO {
+export interface PlantDTO {
     plantNr: string;
     coordinate: string;
     species: string;
