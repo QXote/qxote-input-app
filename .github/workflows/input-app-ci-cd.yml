@@ -1,0 +1,33 @@
+name: Qxote Input App CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build React app (Vite)
+      run: npm run build
+
+    - name: Copy React build to API wwwroot
+      run: |
+        rsync -a --delete dist/ /var/www/apiqxote/wwwroot/
+
+    - name: Restart API service
+      run: sudo systemctl restart qxoteapi.service
+
