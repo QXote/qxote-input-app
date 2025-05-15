@@ -61,9 +61,52 @@ export default function StepTwo() {
         Add by typing, or, search & select flora from dropdown.
       </label>
 
-      <div className="flex flex-col items-center gap-3 mb-3">
-        <div className="flex flex-row items-center gap-3">
-          <Input
+      <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => onSearch(e.target.value)}
+          placeholder="Search scientific name..."
+          style={{ flex: 1, padding: "8px", border: "1px solid black" }}
+        />
+        <Button variant="outline" onClick={() => setCustomMode(!customMode)}>
+          +
+        </Button>
+      </div>
+
+      {searchTerm.trim() !== "" && suggestions.length > 0 && (
+        <ul
+          style={{
+            border: "1px solid black",
+            listStyle: "none",
+            padding: 0,
+            maxHeight: 150,
+            overflowY: "auto",
+          }}
+        >
+          {suggestions.map((item) => (
+            <li
+              key={item.key}
+              onClick={() => onSelectPlant(item)}
+              style={{ padding: "8px", cursor: "pointer" }}
+            >
+              <div>
+                <strong>{item.scientificName}</strong>
+                {item.canonicalName && <span> ({item.canonicalName})</span>}
+              </div>
+              {item.class && (
+                <div style={{ fontSize: "0.8rem", color: "#555" }}>
+                  Class: <em>{item.class}</em>
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {customMode && (
+        <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+          <input
             type="text"
             value={searchTerm}
             onChange={(e) => onSearch(e.target.value)}
