@@ -41,63 +41,72 @@ export default function StepThree({ data, onChange }: StepThreeProps) {
   }, [data.zone, data.cover]);
 
   return (
-    <div className="flex flex-col gap-6 p-1">
-      <Combobox
-        items={zones}
-        selectedValue={data.zone}
-        onValueChange={(val) =>
-          onChange({ target: { name: "zone", value: val } })
-        }
-        placeholder="Select zone"
-      />
-      <Combobox
-        items={microclimates}
-        selectedValue={data.cover}
-        onValueChange={(val) =>
-          onChange({ target: { name: "cover", value: val } })
-        }
-        placeholder="Select microclimate"
-      />
-      <div className="grid items-center gap-2">
-        <Label htmlFor="temperature">Temperature (°C)</Label>
-        <div className="relative">
-          <Input
-            id="temperature"
-            type="number"
-            placeholder="..."
-            className="pr-10"
-            value={data.temperature}
-            onChange={(e) =>
-              onChange({
-                target: { name: "temperature", value: Number(e.target.value) },
-              })
-            }
-          />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
-            °C
-          </span>
+    <>
+      <div className="flex flex-col gap-2">
+        <h1 className="text-xl font-bold">zone & microclimate</h1>
+        <label className="mb-2">Select both and the rest gets filled in</label>
+      </div>
+      <div className="flex flex-col gap-6 pb-5">
+        <Combobox
+          items={zones}
+          selectedValue={data.zone}
+          onValueChange={(val) =>
+            onChange({ target: { name: "zone", value: val } })
+          }
+          placeholder="Select zone"
+        />
+        <Combobox
+          items={microclimates}
+          selectedValue={data.cover}
+          onValueChange={(val) =>
+            onChange({ target: { name: "cover", value: val } })
+          }
+          placeholder="Select microclimate"
+        />
+        <div className="grid items-center gap-2">
+          <Label htmlFor="temperature">Temperature (°C)</Label>
+          <div className="relative">
+            <Input
+              id="temperature"
+              type="number"
+              placeholder="..."
+              className="pr-10"
+              value={data.temperature}
+              onChange={(e) =>
+                onChange({
+                  target: {
+                    name: "temperature",
+                    value: Number(e.target.value),
+                  },
+                })
+              }
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+              °C
+            </span>
+          </div>
+        </div>
+        <div className="grid items-center gap-2">
+          <Label htmlFor="humidity">Humidity (%)</Label>
+          <div className="relative">
+            <Input
+              id="humidity"
+              type="number"
+              placeholder="..."
+              className="pr-10"
+              value={data.humidity}
+              onChange={(e) =>
+                onChange({
+                  target: { name: "humidity", value: Number(e.target.value) },
+                })
+              }
+            />
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+              %
+            </span>
+          </div>
         </div>
       </div>
-      <div className="grid items-center gap-2">
-        <Label htmlFor="humidity">Humidity (%)</Label>
-        <div className="relative">
-          <Input
-            id="humidity"
-            type="number"
-            placeholder="..."
-            className="pr-10"
-            value={data.humidity}
-            onChange={(e) =>
-              onChange({
-                target: { name: "humidity", value: Number(e.target.value) },
-              })
-            }
-          />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
-            %
-          </span>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
