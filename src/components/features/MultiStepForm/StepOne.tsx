@@ -8,5 +8,6 @@ function StepOne() {
       <p>selecteer het plot</p>
       <Plot_dropdown />
     </div>
+  );
 }
 export default StepOne;
