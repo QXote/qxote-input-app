@@ -19,40 +19,46 @@ interface SummaryDataTableProps {
 export function SummaryDataTable({
   plant = defaultPlant,
 }: SummaryDataTableProps) {
+  // If the plant.date is empty or null, set it to today's date
+  const enrichedPlant = {
+    ...plant,
+    date: plant.date || new Date().toLocaleString("sv-SE").replace("T", " "),
+  };
+
   return (
     <Table>
       <TableBody>
         <TableRow>
           <TableCell className="font-medium">PlotNr</TableCell>
-          <TableCell>{plant.plotNr}</TableCell>
+          <TableCell>{enrichedPlant.plotNr}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Coordinate</TableCell>
-          <TableCell>{plant.coordinate}</TableCell>
+          <TableCell>{enrichedPlant.coordinate}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Species</TableCell>
-          <TableCell>{plant.species}</TableCell>
+          <TableCell>{enrichedPlant.species}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Zone</TableCell>
-          <TableCell>{plant.zone}</TableCell>
+          <TableCell>{enrichedPlant.zone}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Cover</TableCell>
-          <TableCell>{plant.cover}</TableCell>
+          <TableCell>{enrichedPlant.cover}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Temperature</TableCell>
-          <TableCell>{plant.temperature}</TableCell>
+          <TableCell>{enrichedPlant.temperature}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Humidity</TableCell>
-          <TableCell>{plant.humidity}</TableCell>
+          <TableCell>{enrichedPlant.humidity}</TableCell>
         </TableRow>
         <TableRow>
           <TableCell className="font-medium">Date</TableCell>
-          <TableCell>{plant.date}</TableCell>
+          <TableCell>{enrichedPlant.date}</TableCell>
         </TableRow>
       </TableBody>
     </Table>

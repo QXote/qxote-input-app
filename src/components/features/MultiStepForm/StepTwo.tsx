@@ -13,7 +13,7 @@ export default function StepTwo({ data, onChange }: StepTwoProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState<Plant[]>([]);
   const [, setSelectedPlant] = useState<Plant | null>(null);
-  const [, setPlantClass] = useState("");
+  const [plantClass, setPlantClass] = useState("");
 
   async function onSearch(term: string) {
     setSearchTerm(term);
@@ -87,6 +87,10 @@ export default function StepTwo({ data, onChange }: StepTwoProps) {
               })
             }
           />
+        </div>
+        <div className="flex flex-col gap-1 w-full">
+          <label>Class Name:</label>
+          <Input type="text" placeholder="..." value={plantClass} />
         </div>
       </div>
     </div>

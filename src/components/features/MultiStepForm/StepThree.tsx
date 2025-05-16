@@ -6,19 +6,20 @@ import { fetchWeather } from "@/api/weather_api";
 import type { PlantDTO } from "@/models/plantDTO.ts";
 
 const zones = [
-  { value: "zone1", label: "zone1" },
-  { value: "zone2", label: "zone2" },
-  { value: "zone3", label: "zone3" },
-  { value: "zone4", label: "zone4" },
-  { value: "zone5", label: "zone5" },
+  { value: "0", label: "0" },
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
 ];
 
 const microclimates = [
-  { value: "microclimate1", label: "microclimate1" },
-  { value: "microclimate2", label: "microclimate2" },
-  { value: "microclimate3", label: "microclimate3" },
-  { value: "microclimate4", label: "microclimate4" },
-  { value: "microclimate5", label: "microclimate5" },
+  { value: "Full sun dry", label: "Full sun dry" },
+  { value: "Sun with some shade dry", label: "Sun with some shade dry" },
+  { value: "Shade dry", label: "Shade dry" },
+  { value: "Sun wet", label: "Sun wet" },
+  { value: "Shade wet", label: "Shade wet" },
 ];
 
 interface StepThreeProps {

@@ -33,6 +33,8 @@ interface ComboboxProps {
   onValueChange: (value: string | null) => void;
   placeholder?: string;
   className?: string;
+  allowCustomInput?: boolean;
+  maxLength?: number;
 }
 
 export function Combobox({
@@ -41,24 +43,54 @@ export function Combobox({
   onValueChange,
   placeholder = "Select item...",
   className,
+  allowCustomInput = false, // Define it true when calling combobox if you want to allow the user to input custom values
+  maxLength,
 }: ComboboxProps) {
   const [open, setOpen] = React.useState(false);
+  const [inputValue, setInputValue] = React.useState("");
+
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const selectedItem = items.find((item) => item.value === selectedValue);
 
+  const displayLabel = selectedItem
+    ? selectedItem.label
+    : selectedValue || placeholder;
+
   const trigger = (
     <Button variant="outline" className={cn("justify-start", className)}>
-      {selectedItem ? selectedItem.label : placeholder}
+      {displayLabel}
       <ChevronsUpDown className="ml-auto h-4 w-4 opacity-50" />
     </Button>
   );
 
   const list = (
     <Command>
-      <CommandInput placeholder="Search..." />
+      <CommandInput
+        placeholder="Search or enter custom..."
+        onValueChange={(value) => setInputValue(value)}
+        maxLength={maxLength}
+      />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
+
+        {/* Optional custom input item */}
+        {allowCustomInput &&
+          inputValue &&
+          !items.some(
+            (item) => item.label.toLowerCase() === inputValue.toLowerCase()
+          ) && (
+            <CommandItem
+              value={`custom-${inputValue}`}
+              onSelect={() => {
+                onValueChange(inputValue);
+                setOpen(false);
+              }}
+            >
+              Create "{inputValue}"
+            </CommandItem>
+          )}
+
         <CommandGroup>
           {items.map((item) => (
             <CommandItem
