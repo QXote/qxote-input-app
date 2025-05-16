@@ -72,8 +72,6 @@ export function Combobox({
         maxLength={maxLength}
       />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-
         {/* Optional custom input item */}
         {allowCustomInput &&
           inputValue &&
@@ -106,6 +104,7 @@ export function Combobox({
             </CommandItem>
           ))}
         </CommandGroup>
+        <CommandEmpty>No results found.</CommandEmpty>
       </CommandList>
     </Command>
   );
