@@ -3,6 +3,7 @@
 // Look into updating the app or changing the database for better functionality
 export interface PlantDTO {
   plotNr?: string;
+  plotCoveragePct?: string;
   coordinate?: string;
   species?: string;
   cover?: string; // This value is currently being used for microclimate

@@ -33,6 +33,10 @@ export function SummaryDataTable({
           <TableCell>{enrichedPlant.plotNr}</TableCell>
         </TableRow>
         <TableRow>
+          <TableCell className="font-medium">plotCoveragePct</TableCell>
+          <TableCell>{enrichedPlant.plotCoveragePct}</TableCell>
+        </TableRow>
+        <TableRow>
           <TableCell className="font-medium">Coordinate</TableCell>
           <TableCell>{enrichedPlant.coordinate}</TableCell>
         </TableRow>

@@ -1,16 +1,37 @@
 # qxote-input-app
 
-Input app voor het invoeren van flora en fauna in de database
+Input app for inserting flora en fauna data into a database
 
-## React + Vite
+## Reason for existing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To easily note down and keep track of specific flora en fauna on the property of Qxote
 
-Currently, two official plugins are available:
+## Note
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This app was built during a hackathon-style event, so the codebase is rough and a lot of functionality is still missing. Code quality isn’t great, but I’m documenting a few things that might be useful to others (or to myself later) while the details are still fresh in my mind.
 
-## Expanding the ESLint configuration
+### Notes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Typescript is present in the project but is definitly not being properly used. Might be worth refactoring the app some time down the road to improve code quality but more importantly maintainablity.
+
+## Techstack
+
+- [React](https://react.dev/)
+- [ShadCN](https://ui.shadcn.com/)
+- [Vite](https://vite.dev/)
+- [Vite-PWA](https://vite-pwa-org.netlify.app/)
+
+## Missing Functionality
+
+- [ ] Sending data from the app to a database
+- [ ] Each plot can have multiple zones
+
+## Ideas For Functionality
+
+- [ ] Show plot locations on a map
+- [ ] A pop-up to show the status of the data being sent to the database
+- [ ] Base weather information on user location / coordinates
+
+## Ideas For UI
+
+- [ ] Improve favicon by using SVG & updating design so it looks good on light & dark mode (Vite-PWA has a plugin for Icon generation)

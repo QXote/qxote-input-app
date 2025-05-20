@@ -3,6 +3,8 @@ import type { PlantDTO } from "@/models/plantDTO.ts";
 import { useState } from "react";
 import { Combobox } from "@/components/ui/combobox";
 import { Button } from "@/components/ui/button.tsx";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface StepOneProps {
   data: PlantDTO;
@@ -53,31 +55,67 @@ export default function StepOne({ data, onChange }: StepOneProps) {
     <div className="flex flex-col items-center justify-center gap-2 pb-5">
       <h1 className="text-xl font-bold">Plot</h1>
       <label className="mb-2">Create a Plot</label>
-      <Combobox
-        items={plots.map((p) => ({
-          value: p.id,
-          label: p.name,
-          coordinate: p.coordinate,
-        }))}
-        className="w-full"
-        allowCustomInput={true}
-        maxLength={4} // Current database only accepts 4 chars
-        selectedValue={data.plotNr}
-        onValueChange={(val) => {
-          const selected = plots.find((p) => p.id === val);
-          if (selected) {
-            onChange({ target: { name: "plotNr", value: selected.id } });
-            onChange({
-              target: { name: "coordinate", value: selected.coordinate },
-            });
-          } else {
-            // Handle custom input
-            onChange({ target: { name: "plotNr", value: val } });
-            onChange({ target: { name: "coordinate", value: "" } }); // or let user input it
-          }
-        }}
-        placeholder="Select plot"
-      />
+      <div className="flex flex-col gap-6 w-full">
+        <Combobox
+          items={plots.map((p) => ({
+            value: p.id,
+            label: p.name,
+            coordinate: p.coordinate,
+          }))}
+          className="w-full"
+          allowCustomInput={true}
+          maxLength={4} // Current database only accepts 4 chars
+          selectedValue={data.plotNr}
+          onValueChange={(val) => {
+            const selected = plots.find((p) => p.id === val);
+            if (selected) {
+              onChange({ target: { name: "plotNr", value: selected.id } });
+              onChange({
+                target: { name: "coordinate", value: selected.coordinate },
+              });
+            } else {
+              // Handle custom input
+              onChange({ target: { name: "plotNr", value: val } });
+              onChange({ target: { name: "coordinate", value: "" } }); // or let user input it
+            }
+          }}
+          placeholder="Select plot"
+        />
+        <div className="flex flex-col items-start gap-2 w-full">
+          <Label htmlFor="plotCoveragePct">plotCoveragePct (%)</Label>
+          <div className="relative w-full">
+            <Input
+              id="plotCoveragePct"
+              type="number"
+              min={0}
+              max={100}
+              placeholder="..."
+              value={data.plotCoveragePct}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                if (value >= 0 && value <= 100) {
+                  onChange({
+                    target: {
+                      name: "plotCoveragePct",
+                      value,
+                    },
+                  });
+                }
+              }}
+              onKeyDown={(e) => {
+                const invalidChars = ["-", "+", "e"];
+                if (invalidChars.includes(e.key)) {
+                  e.preventDefault();
+                }
+              }}
+            />
+
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+              %
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="p-4 space-y-4">
         <Button onClick={getLocation}>Get Location</Button>
 

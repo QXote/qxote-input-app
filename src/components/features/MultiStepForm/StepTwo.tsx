@@ -3,6 +3,7 @@ import { searchPlants, getPlantDetails } from "@/api/flora_api.ts";
 import type { Plant } from "@/models/plant.ts";
 import type { PlantDTO } from "@/models/plantDTO.ts";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface StepTwoProps {
   data?: PlantDTO;
@@ -76,7 +77,7 @@ export default function StepTwo({ data, onChange }: StepTwoProps) {
         )}
 
         <div className="flex flex-col gap-1 w-full">
-          <label>Latin Name:</label>
+          <Label>Latin Name:</Label>
           <Input
             type="text"
             placeholder="..."
@@ -89,7 +90,7 @@ export default function StepTwo({ data, onChange }: StepTwoProps) {
           />
         </div>
         <div className="flex flex-col gap-1 w-full">
-          <label>Class Name:</label>
+          <Label>Class Name:</Label>
           <Input type="text" placeholder="..." value={plantClass} />
         </div>
       </div>
