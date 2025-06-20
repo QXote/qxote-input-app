@@ -127,6 +127,6 @@ If the application is ever exposed beyond the local network, authentication and 
 
 ## Conclusion
 
-The current version of the app validates the concept of digital flora and fauna tracking for Qxote. However, to reach production quality, a ground-up rewrite using the proposed architecture is strongly recommended. The Docker + Coolify approach provides a flexible, scalable foundation for ongoing development and can support both local and remote deployment needs as requirements evolve.
+The current version of the app validates the concept of digital flora and fauna tracking for Qxote. However, to reach production quality, a ground-up rewrite using the proposed architecture is strongly recommended. The existing database and backend API, originally implemented in 2023/2024, no longer meet the evolved customer requirements. As a result, both components require substantial redesign and redevelopment before they can support a production-ready version of the app. The Docker + Coolify approach provides a flexible, scalable foundation for ongoing development and can support both local and remote deployment needs as requirements evolve.
 
 I've also added a zip to this repo which is for a school project I'm working on which can be used as insperation for the rewrite. I dont suggest using that project as is and instead setting it up fresh with all the required dependencies.
